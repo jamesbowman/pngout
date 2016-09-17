@@ -25,14 +25,14 @@ static uint32_t crc_update(uint32_t crc, uint8_t data)
   return crc;
 }
 
-/* adler8: Output byte n and update the CRC32 */
+/* b8: Output byte n and update the CRC32 */
 static void b8(struct pngout *s, uint8_t n)
 {
   s->output[s->nout++] = n;
   s->crc32 = crc_update(s->crc32, n);
 }
 
-/* adler8: Output byte n and update the Adler CRC */
+/* adler8: Output byte n and update the CRC32 and Adler CRC */
 static void adler8(struct pngout *s, uint8_t n)
 {
   b8(s, n);
